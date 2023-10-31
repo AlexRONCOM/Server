@@ -11,7 +11,7 @@
 #define SPAWN_X -2237.61
 #define SPAWN_Y 2353.63
 #define SPAWN_Z 5.0
-#define SPAWN_A 45.0
+#define SPAWN_A 0.0
 
 enum
 {
