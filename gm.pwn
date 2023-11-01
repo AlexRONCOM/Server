@@ -571,3 +571,37 @@ CMD:rentcar(playerid, params[])
 
 
 #pragma warning disable 234
+
+
+CMD:rentcar(playerid, params[])
+{
+	switch(PlayerData[playerid][CMD_MODE])
+	{
+		// Alex Zone Start //
+
+		case CMD_MODE_ALEX:
+		{
+			if(IsValidTimer(PlayerData[playerid][aRentTimer]))
+				return SCM(playerid, -1, "{AAAAAA}RentCar:{FFFFFF} You already have a rented car!");
+
+			if(!IsPlayerInRangeOfPoint(playerid, 2.0, 542.6242, -1293.5698, 17.2422))
+				return SCM(playerid, -1, "{008080}Info:{FFFFFF} You're to far away from the rentcar!");
+
+			if(PlayerData[playerid][PoundCash] < 300)
+				return SCM(playerid, -1, "{AAAAAA}RentCar:{FFFFFF} You don't have enogh money to rent a car!");
+
+			if(GetPlayerState(playerid) != PLAYER_STATE_ONFOOT)
+				return SCM(playerid, -1, "{AAAAAA}RentCar:{FFFFFF} Please exit from the vehicle!");
+
+			SPD(playerid, DIALOG_RENTCAR_ALEX, DIALOG_STYLE_MSGBOX, "{FFFFFF}Rent Car", "{FFFFFF}Hello!\n{FFFFFF}Would you like a more fancy car or something simpler?", "{FFFFFF}Fancy", "{FFFFFF}Simpler");
+		}
+
+		// Alex Zone Finish //
+	}
+
+	return 1;
+}
+
+
+
+#pragma warning disable 234
